@@ -6,10 +6,15 @@ const loginUser = async (phoneNumber, password) => {
       phoneNumber: phoneNumber,
       password: password,
     };
+
+    console.log(" --------------- Logoin");
+    console.log(host.api_host + "/users/login");
+
     const response = await axios.post(host.api_host + "/users/login", userData);
+    console.log(response);
     if (response.status === 200) {
       console.log("Login successful:", response.data);
-      
+
       return response.data;
     } else {
       console.error("Login failed:", response.data);
